@@ -1,0 +1,6 @@
+@CQRSBookStore_HostAddress = http://localhost:5189
+
+GET {{CQRSBookStore_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
