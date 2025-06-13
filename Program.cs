@@ -11,6 +11,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+builder.Services.AddMemoryCache();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

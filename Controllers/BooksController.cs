@@ -15,7 +15,7 @@ public class BooksController(IMediator mediator) : ControllerBase
     [HttpGet]
     public async Task<ActionResult<List<Book>>> FindMany()
     {
-        return await _mediator.Send(new GetBooksQuery());
+        return await _mediator.Send(new GetBooksCachedQuery());
     }
 
     [HttpPost]
