@@ -23,4 +23,17 @@ public class BooksController(IMediator mediator) : ControllerBase
     {
         return await _mediator.Send(command);
     }
+
+    [HttpPut("{id}")]
+    public async Task<int> Update(int  id, UpdateBookCommand command)
+    {
+        command.Id = id;
+        return await _mediator.Send(command);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<int> Remove(int id)
+    {
+        return await _mediator.Send(new RemoveBookCommand { Id = id });
+    }
 }
