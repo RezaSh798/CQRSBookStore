@@ -3,9 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CQRSBookStore.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
-    public AppDbContext(DbContextOptions options) : base(options) { }
-
     public DbSet<Book> Books => Set<Book>();
 }
