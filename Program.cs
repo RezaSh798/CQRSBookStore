@@ -1,4 +1,5 @@
 using CQRSBookStore.Data;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,9 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 //     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDbContext<AppDbContext>(opt => 
     opt.UseInMemoryDatabase("CQRSBookStoreDB"));
-
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
